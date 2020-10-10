@@ -52,13 +52,34 @@ def task3():
     menu()
 
 
+def task4():
+    def is_polindrom(num):
+        raw = str(num)
+        r_num = int(raw[::-1])
+        if num == r_num:
+            return True
+        else:
+            return False
+
+    pol = []
+    for i in range(10, 1000):
+        for j in range(10, 1000):
+            if is_polindrom(i * j):
+                pol.append(i * j)
+
+    print("Самый большой палиндром, полученный умножением двух трехзначных чисел=", max(pol))
+    input("Для возврата в меню нажмите любую кнопку ")
+    menu()
+
+
 def menu():
-    print("Введите номер упражнения (от 1 до 3)")
+    print("Введите номер упражнения (от 1 до 4)")
     task = input()
     return {
         "1": task1,
         "2": task2,
         "3": task3,
+        "4": task4,
     }.get(task, error)()
 
 
